@@ -20,7 +20,6 @@ public class UsuarioDAO {
     private String[] colunas = {BaseDAO.USUARIO_ID,
             BaseDAO.USUARIO_EMAIL,
             BaseDAO.USUARIO_NOME,
-            //BaseDAO.USUARIO_SENHA,
             BaseDAO.USUARIO_NASCIMENTO,
             BaseDAO.USUARIO_SEXO};
 
@@ -42,7 +41,6 @@ public class UsuarioDAO {
         //Carregar os valores nos campos do Contato que será incluído
         values.put(BaseDAO.USUARIO_NOME, pValue.getNome());
         values.put(BaseDAO.USUARIO_EMAIL, pValue.getEmail());
-        //values.put(BaseDAO.USUARIO_SENHA, pValue.getSenha());
         values.put(BaseDAO.USUARIO_NASCIMENTO, String.valueOf(pValue.getDataNasc()));
         values.put(BaseDAO.USUARIO_SEXO, pValue.getSexo());
 
