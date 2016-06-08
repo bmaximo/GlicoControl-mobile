@@ -9,15 +9,22 @@ import android.database.sqlite.SQLiteOpenHelper;
  */
 public class BaseDAO extends SQLiteOpenHelper{
 
+    //tabela usuario
     public static final String TBL_USUARIO =   "usuario";
     public static final String USUARIO_EMAIL = "email";
-    //public static final String USUARIO_SENHA = "senha";
     public static final String USUARIO_NOME = "nome";
     public static final String USUARIO_NASCIMENTO = "nascimento";
     public static final String USUARIO_ID = "id";
     public static final String USUARIO_SEXO = "sexo";
+    //tabela controle
+    public static final String TBL_CONTROLE = "controle";
+    public static final String CONTROLE_ID = "id";
+    public static final String CONTROLE_MEDICAO ="medicao";
+    public static final String CONTROLE_INSULINA = "insulina";
+    public static final String CONTROLE_PERIODO = "periodo";
 
-    //Estrutura da tabela Agenda (sql statement)
+
+    //Estrutura da tabela Usuario (sql statement)
     private static final String CREATE_USUARIO = "create table " +
             TBL_USUARIO + "( " + USUARIO_ID       + " integer primary key autoincrement, " +
             USUARIO_EMAIL     + " text, " +
@@ -25,9 +32,16 @@ public class BaseDAO extends SQLiteOpenHelper{
             USUARIO_NOME + " text, "+
             USUARIO_NASCIMENTO + " date, "+
             USUARIO_SEXO + " text);";
+    //estrutura da tabela controle
+    private static final String CREATE_CONTROLE = "create table "+
+            TBL_CONTROLE + "(" + CONTROLE_ID + " integer primary key autoincrement, " +
+            CONTROLE_MEDICAO + " float, " +
+            CONTROLE_INSULINA + " float, " +
+            CONTROLE_PERIODO + " text); ";
+
 
     private static final String DATABASE_NAME="pi.db";
-    private static final int DATABASE_VERSION=3;
+    private static final int DATABASE_VERSION=4;
 
 
     public BaseDAO(Context context) {
@@ -39,6 +53,7 @@ public class BaseDAO extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         //Criação da tabela
         db.execSQL(CREATE_USUARIO);
+        db.execSQL(CREATE_CONTROLE);
     }
 
     @Override
@@ -46,6 +61,7 @@ public class BaseDAO extends SQLiteOpenHelper{
         //Caso seja necessário mudar a estrutura da tabela
         //deverá primeiro excluir a tabela e depois recriá-la
         db.execSQL("DROP TABLE IF EXISTS " + TBL_USUARIO);
+        db.execSQL("DROP TABLE IF EXISTS " + TBL_CONTROLE);
         onCreate(db);
     }
 

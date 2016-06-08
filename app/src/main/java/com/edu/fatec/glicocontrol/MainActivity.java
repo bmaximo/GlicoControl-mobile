@@ -21,4 +21,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
+    public void Lista (View v){
+        Intent tLista = new Intent(this, ListaControle.class);
+        startActivity(tLista);
+    }
+
+    public void Imc (View v){
+        Intent tImc = new Intent(this, Imc.class);
+        startActivity(tImc);
+    }
+
+
 }
