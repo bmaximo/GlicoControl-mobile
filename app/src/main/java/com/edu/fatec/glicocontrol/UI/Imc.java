@@ -1,10 +1,16 @@
-package com.edu.fatec.glicocontrol;
+package com.edu.fatec.glicocontrol.UI;
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
+
+import com.edu.fatec.glicocontrol.R;
+
+import java.math.BigDecimal;
+import java.text.NumberFormat;
 
 public class Imc extends AppCompatActivity {
 
@@ -12,6 +18,11 @@ public class Imc extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_imc);
+    }
+    public double truncate (Double valor, int precisao){
+        BigDecimal bd = BigDecimal.valueOf(valor);
+        bd = bd.setScale(precisao, BigDecimal.ROUND_DOWN);
+        return bd.doubleValue();
     }
     public void calculo(View v){
         EditText altura = (EditText) findViewById(R.id.edtAltura);
@@ -22,6 +33,7 @@ public class Imc extends AppCompatActivity {
         Double a = Double.parseDouble(altura.getText().toString());
         Double p = Double.parseDouble(peso.getText().toString());
         Double r = p/(Math.pow(a,2));
+        r = truncate(r,2);
         result.setText(r.toString());
         if(r<=18.5){
             coment.setText("Abaixo do Peso");

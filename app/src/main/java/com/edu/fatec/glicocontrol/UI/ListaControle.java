@@ -1,4 +1,4 @@
-package com.edu.fatec.glicocontrol;
+package com.edu.fatec.glicocontrol.UI;
 
 import android.app.Activity;
 import android.app.ListActivity;
@@ -16,6 +16,7 @@ import android.widget.Toast;
 import com.edu.fatec.glicocontrol.DAO.ControleAdapter;
 import com.edu.fatec.glicocontrol.DAO.ControleDAO;
 import com.edu.fatec.glicocontrol.POJO.ControleVO;
+import com.edu.fatec.glicocontrol.R;
 
 import java.util.List;
 

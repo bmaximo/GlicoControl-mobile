@@ -88,8 +88,8 @@ public class ControleAdapter extends BaseAdapter{
                 holder = (ViewHolder) convertView.getTag();
             }
 
-            holder.tvMedicao.setText((int) controle.getMedicao());
-            holder.tvInsulina.setText((int) controle.getInsulina());
+            holder.tvMedicao.setText(""+ controle.getMedicao());
+            holder.tvInsulina.setText(""+ controle.getInsulina());
             holder.tvPeriodo.setText(controle.getPeriodo());
 
             return convertView;

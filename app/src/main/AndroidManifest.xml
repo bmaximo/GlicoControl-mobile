@@ -33,15 +33,15 @@
 
         <!-- Activity Principal -->
         <activity
-            android:name=".MainActivity"
+            android:name=".UI.MainActivity"
             android:label="@string/app_name" />
         <activity android:name=".UI.Cadastro" />
-        <activity android:name=".Controle" />
+        <activity android:name=".UI.Controle" />
         <activity
-            android:name=".ListaControle"
+            android:name=".UI.ListaControle"
             android:label="@string/title_activity_lista_controle"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Imc"></activity>
+        <activity android:name=".UI.Imc" />
     </application>
 
 </manifest><!--

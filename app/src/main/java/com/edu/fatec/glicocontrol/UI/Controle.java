@@ -1,4 +1,4 @@
-package com.edu.fatec.glicocontrol;
+package com.edu.fatec.glicocontrol.UI;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -10,6 +10,7 @@ import android.widget.Spinner;
 import android.widget.Toast;
 
 import com.edu.fatec.glicocontrol.POJO.ControleVO;
+import com.edu.fatec.glicocontrol.R;
 
 public class Controle extends Activity {
 

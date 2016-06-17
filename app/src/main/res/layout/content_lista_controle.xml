@@ -5,7 +5,7 @@
     android:orientation="vertical" >
 
 
-    tools:context="com.edu.fatec.glicocontrol.ListaControle"
+    tools:context="com.edu.fatec.glicocontrol.UI.ListaControle"
     tools:showIn="@layout/activity_lista_controle">
 
     <TextView

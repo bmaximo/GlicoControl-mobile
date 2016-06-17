@@ -6,7 +6,6 @@ import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.edu.fatec.glicocontrol.Controle;
 import com.edu.fatec.glicocontrol.POJO.ControleVO;
 
 import java.util.ArrayList;
@@ -19,7 +18,7 @@ public class ControleDAO {
     private SQLiteDatabase database;
     private BaseDAO dbHelper;
 
-    //Campos da tabela Agenda
+    //Campos da tabela Controle
     private String[] colunas = {BaseDAO.CONTROLE_ID,
             BaseDAO.CONTROLE_MEDICAO,
             BaseDAO.CONTROLE_INSULINA,
@@ -41,7 +40,7 @@ public class ControleDAO {
     public long Inserir(ControleVO pValue) {
         ContentValues values = new ContentValues();
 
-        //Carregar os valores nos campos do Contato que será incluído
+        //Carregar os valores nos campos do Controle que será incluído
         values.put(BaseDAO.CONTROLE_MEDICAO, pValue.getMedicao());
         values.put(BaseDAO.CONTROLE_INSULINA, pValue.getInsulina());
         values.put(BaseDAO.CONTROLE_PERIODO, pValue.getPeriodo());
@@ -75,9 +74,9 @@ public class ControleDAO {
     public List<ControleVO> Consultar() {
         List<ControleVO> lstControle = new ArrayList<ControleVO>();
 
-        //Consulta para trazer todos os dados da tabela Controle ordenados pela coluna Horario
+        //Consulta para trazer todos os dados da tabela Controle
         Cursor cursor = database.query(BaseDAO.TBL_CONTROLE, colunas,
-                null, null, null, null, BaseDAO.CONTROLE_ID);
+                null, null, null, null, null);
         cursor.moveToFirst();
         while (!cursor.isAfterLast()) {
             ControleVO lControleVO = cursorToControle(cursor);
@@ -94,8 +93,8 @@ public class ControleDAO {
     private ControleVO cursorToControle(Cursor cursor) {
         ControleVO lControleVO = new ControleVO();
         lControleVO.setId(cursor.getLong(0));
-        lControleVO.setMedicao(Float.parseFloat(cursor.getString(1)));
-        lControleVO.setInsulina(Float.parseFloat(cursor.getString(2)));
+        lControleVO.setMedicao(cursor.getFloat(1));
+        lControleVO.setInsulina(cursor.getFloat(2));
         lControleVO.setPeriodo(cursor.getString(3));
         return lControleVO;
     }

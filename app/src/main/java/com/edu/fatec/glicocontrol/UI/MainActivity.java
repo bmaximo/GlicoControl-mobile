@@ -1,11 +1,11 @@
-package com.edu.fatec.glicocontrol;
+package com.edu.fatec.glicocontrol.UI;
 
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 
-import com.edu.fatec.glicocontrol.UI.Cadastro;
+import com.edu.fatec.glicocontrol.R;
 
 public class MainActivity extends AppCompatActivity {
 

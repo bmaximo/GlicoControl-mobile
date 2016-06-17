@@ -7,28 +7,62 @@
     android:orientation="vertical">
     <RelativeLayout
         android:id="@+id/LinearLayout02"
-        android:layout_height="wrap_content"
+        android:layout_height="63dp"
         android:layout_width="fill_parent">
 
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:id="@+id/txtMedicao"
-            android:text="Medição">
+            android:text="Medição"
+            android:layout_alignParentTop="true"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2">
         </TextView>
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:id="@+id/txtInsulina"
             android:text="Insulina"
-            android:layout_below="@+id/txtMedicao">
+            android:layout_below="@+id/txtMedicao"
+            android:layout_toRightOf="@+id/textView2"
+            android:layout_toEndOf="@+id/textView2">
         </TextView>
         <TextView
             android:layout_height="wrap_content"
             android:layout_width="fill_parent"
             android:id="@+id/txtPeriodo"
             android:text="Periodo"
-            android:layout_below="@+id/txtInsulina">
+            android:layout_below="@+id/txtInsulina"
+            android:layout_alignLeft="@+id/txtInsulina"
+            android:layout_alignStart="@+id/txtInsulina">
         </TextView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Medição:  "
+            android:id="@+id/textView2"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Insulina: "
+            android:id="@+id/textView3"
+            android:layout_below="@+id/txtMedicao"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Período: "
+            android:id="@+id/textView4"
+            android:layout_below="@+id/txtInsulina"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
     </RelativeLayout>
 </LinearLayout>
