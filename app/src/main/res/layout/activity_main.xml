@@ -6,34 +6,46 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".UI.MainActivity">
 
-    <Button
-        android:layout_width="match_parent"
+    <ImageButton
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Meu Perfil"
-        android:id="@+id/btnCadastrar"
-        android:layout_marginTop="62dp"
+        android:id="@+id/imageButton"
+        android:background="@drawable/meuperfil"
         android:onClick="cadastro"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="30dp" />
 
-    <Button
-        android:layout_width="match_parent"
+    <ImageButton
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Índice Glicêmico"
-        android:id="@+id/btnIndice"
-        android:layout_below="@+id/btnCadastrar"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="56dp"
-        android:onClick="Lista" />
-
-    <Button
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Calcular IMC"
-        android:id="@+id/btnImc"
-        android:layout_marginTop="51dp"
-        android:onClick="Imc"
-        android:layout_below="@+id/btnIndice"
+        android:id="@+id/imageButton2"
+        android:background="@drawable/controleglicemico"
+        android:onClick="ListaControle"
+        android:layout_alignTop="@+id/imageButton"
         android:layout_alignParentRight="true"
         android:layout_alignParentEnd="true" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton3"
+        android:background="@drawable/imc"
+        android:layout_marginTop="96dp"
+        android:layout_below="@+id/imageButton"
+        android:layout_alignLeft="@+id/imageButton"
+        android:layout_alignStart="@+id/imageButton"
+        android:onClick="Imc" />
+
+    <ImageButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/imageButton4"
+        android:layout_alignBottom="@+id/imageButton3"
+        android:layout_alignLeft="@+id/imageButton2"
+        android:layout_alignStart="@+id/imageButton2"
+        android:background="@drawable/alarme"
+        android:onClick="ListaAlarme" />
+
 </RelativeLayout>

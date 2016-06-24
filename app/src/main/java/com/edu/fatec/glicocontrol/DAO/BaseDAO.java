@@ -22,6 +22,10 @@ public class BaseDAO extends SQLiteOpenHelper{
     public static final String CONTROLE_MEDICAO ="medicao";
     public static final String CONTROLE_INSULINA = "insulina";
     public static final String CONTROLE_PERIODO = "periodo";
+    //tabela alarme
+    public static final String TBL_ALARME = "alarme";
+    public static final String ALARME_ID = "id";
+    public static final String ALARME_HORA ="hora";
 
 
     //Estrutura da tabela Usuario (sql statement)
@@ -38,10 +42,14 @@ public class BaseDAO extends SQLiteOpenHelper{
             CONTROLE_MEDICAO + " float, " +
             CONTROLE_INSULINA + " float, " +
             CONTROLE_PERIODO + " text); ";
+    //Estrutura da tabela alarme
+    private static final String CREATE_ALARME = "create table "+
+            TBL_ALARME + "(" + ALARME_ID + " integer primary key autoincrement, " +
+            ALARME_HORA + " time); ";
 
 
     private static final String DATABASE_NAME="pi.db";
-    private static final int DATABASE_VERSION=4;
+    private static final int DATABASE_VERSION=5;
 
 
     public BaseDAO(Context context) {
@@ -54,6 +62,7 @@ public class BaseDAO extends SQLiteOpenHelper{
         //Criação da tabela
         db.execSQL(CREATE_USUARIO);
         db.execSQL(CREATE_CONTROLE);
+        db.execSQL(CREATE_ALARME);
     }
 
     @Override
@@ -62,6 +71,7 @@ public class BaseDAO extends SQLiteOpenHelper{
         //deverá primeiro excluir a tabela e depois recriá-la
         db.execSQL("DROP TABLE IF EXISTS " + TBL_USUARIO);
         db.execSQL("DROP TABLE IF EXISTS " + TBL_CONTROLE);
+        db.execSQL("DROP TABLE IF EXISTS " + TBL_ALARME);
         onCreate(db);
     }
 

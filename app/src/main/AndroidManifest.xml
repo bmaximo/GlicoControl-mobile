@@ -42,6 +42,14 @@
             android:label="@string/title_activity_lista_controle"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".UI.Imc" />
+        <activity
+            android:name=".UI.Alarme"
+            android:label="@string/title_activity_alarme"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".UI.ListaAlarme"
+            android:label="@string/title_activity_lista_alarme"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest><!--

@@ -16,7 +16,16 @@
         android:layout_width="match_parent"
         android:layout_height="?attr/actionBarSize"
         android:background="?attr/colorPrimary"
-        app:popupTheme="@style/AppTheme.AppBarOverlay" />
+        app:popupTheme="@style/AppTheme.AppBarOverlay">
+        <TextView
+            android:id="@+id/title"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="GlicoControl"
+            android:textColor="@android:color/white"
+            android:textSize="20dp" />
+    </android.support.v7.widget.Toolbar>
 
 </android.support.design.widget.AppBarLayout>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"

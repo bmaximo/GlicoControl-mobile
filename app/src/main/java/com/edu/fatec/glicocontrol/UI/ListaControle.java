@@ -26,11 +26,11 @@ public class ListaControle extends ListActivity {
     private static final int ALTERAR = 1;
 
     private ControleDAO lControleDAO; //instância responsável pela persistência dos dados
-    List<ControleVO> lstControle;  //lista de contatos cadastrados no BD
-    ControleAdapter adapter;   //Adapter responsável por apresentar os contatos na tela
+    List<ControleVO> lstControle;  //lista de medicoes cadastrados no BD
+    ControleAdapter adapter;   //Adapter responsável por apresentar os medicoes na tela
 
     boolean blnShort = false;
-    int Posicao = 0;    //determinar a posição do contato dentro da lista lstContatos
+    int Posicao = 0;    //determinar a posição da medicao dentro da lista lstControle
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,12 +56,12 @@ public class ListaControle extends ListActivity {
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.add:
-                InserirContato();
+                InserirControle();
                 break;
         }
     }
 
-    //Rotina executada quando finalizar a Activity ContatoUI
+    //Rotina executada quando finalizar a Activity ControleUI
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         ControleVO lControleVO = null;
@@ -71,13 +71,13 @@ public class ListaControle extends ListActivity {
             super.onActivityResult(requestCode, resultCode, data);
             if (resultCode == Activity.RESULT_OK)
             {
-                //obtem dados inseridos/alterados na Activity ContatoUI
+                //obtem dados inseridos/alterados na Activity ControleUI
                 lControleVO = (ControleVO)data.getExtras().getSerializable("controle");
 
                 //o valor do requestCode foi definido na função startActivityForResult
                 if (requestCode == INCLUIR)
                 {
-                    //verifica se digitou algo no nome do contato
+                    //verifica se digitou algo no valor da medicao
                     if (!(lControleVO.getMedicao() == 0))
                     {
                         //necessário abrir novamente o BD pois ele foi fechado no método onPause()
@@ -86,7 +86,7 @@ public class ListaControle extends ListActivity {
                         //insere o controle no Banco de Dados SQLite
                         lControleDAO.Inserir(lControleVO);
 
-                        //insere o controle na lista de contatos em memória
+                        //insere o controle na lista de medicoes em memória
                         lstControle.add(lControleVO);
                     }
                 }else if (requestCode == ALTERAR){
@@ -94,7 +94,7 @@ public class ListaControle extends ListActivity {
                     //atualiza o controle no Banco de Dados SQLite
                     lControleDAO.Alterar(lControleVO);
 
-                    //atualiza o controle na lista de controes em memória
+                    //atualiza o controle na lista de controles em memória
                     lstControle.set(Posicao, lControleVO);
                 }
 
@@ -107,12 +107,12 @@ public class ListaControle extends ListActivity {
         }
     }
 
-    private void InserirContato(){
+    private void InserirControle(){
         try
         {
             //a variável "tipo" tem a função de definir o comportamento da Activity
             //ControleUI, agora a variável tipo está definida com o valor "0" para
-            //informar que será uma inclusão de Contato
+            //informar que será uma inclusão de Controle
 
             Intent it = new Intent(this, Controle.class);
             it.putExtra("tipo", INCLUIR);
@@ -152,7 +152,7 @@ public class ListaControle extends ListActivity {
         try
         {
             //Criação do popup menu com as opções que termos sobre
-            //nossos Contatos
+            //nossos Controles
 
             AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo)menuInfo;
             if (!blnShort)
@@ -185,7 +185,7 @@ public class ListaControle extends ListActivity {
             lControleVO = (ControleVO) getListAdapter().getItem(Posicao);
 
             if (menuItemIndex == 0){
-                //Carregar a Activity ContatoUI com o registro selecionado na tela
+                //Carregar a Activity ControleUI com o registro selecionado na tela
 
                 Intent it = new Intent(this, Controle.class);
                 it.putExtra("tipo", ALTERAR);

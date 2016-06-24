@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public void Lista (View v){
+    public void ListaControle (View v){
         Intent tLista = new Intent(this, ListaControle.class);
         startActivity(tLista);
     }
@@ -29,6 +29,11 @@ public class MainActivity extends AppCompatActivity {
     public void Imc (View v){
         Intent tImc = new Intent(this, Imc.class);
         startActivity(tImc);
+    }
+
+    public void ListaAlarme (View v){
+        Intent tAlarme = new Intent(this, ListaAlarme.class);
+        startActivity(tAlarme);
     }
 
 

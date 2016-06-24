@@ -89,7 +89,7 @@ public class ControleDAO {
         return lstControle;
     }
 
-    //Converter o Cursor de dados no objeto POJO ContatoVO
+    //Converter o Cursor de dados no objeto POJO ControleVO
     private ControleVO cursorToControle(Cursor cursor) {
         ControleVO lControleVO = new ControleVO();
         lControleVO.setId(cursor.getLong(0));
